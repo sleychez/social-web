@@ -14,7 +14,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {useParams} from "react-router";
-import {withSuspense} from "./hoc/withSuspense";
+
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -46,22 +46,24 @@ class App extends Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route exact path="/profile/:userId"
-                               element={withSuspense(ProfileContainer)}/>
-                        <Route exact path="/profile"
-                               element={withSuspense(ProfileContainer)}/>
-                        <Route exact path='/dialogs'
-                               element={withSuspense(DialogsContainer)}/>
-                        <Route exact path='/users/*'
-                               element={<UsersContainer/>}/>
-                        <Route exact path='/login'
-                               element={<LoginPage/>}/>
-                        <Route path='/news' element={<News/>}/>
-                        <Route path='/music' element={<Music/>}/>
-                        <Route path='/settings' element={<Settings/>}/>
-                        <Route path='/sidebar' element={<Sidebar/>}/>
-                    </Routes>
+                    <React.Suspense fallback={<Preloader/>}>
+                        <Routes>
+                            <Route  path="/profile/:userId"
+                                    element={<ProfileContainer/>}/>
+                            <Route  path="/profile"
+                                    element={<ProfileContainer/>}/>
+                            <Route  path='/dialogs'
+                                    element={<DialogsContainer/>}/>
+                            <Route  path='/users/*'
+                                    element={<UsersContainer/>}/>
+                            <Route  path='/login'
+                                    element={<LoginPage/>}/>
+                            <Route path='/news' element={<News/>}/>
+                            <Route path='/music' element={<Music/>}/>
+                            <Route path='/settings' element={<Settings/>}/>
+                            <Route path='/sidebar' element={<Sidebar/>}/>
+                        </Routes>
+                    </React.Suspense>
                 </div>
             </div>
         );
