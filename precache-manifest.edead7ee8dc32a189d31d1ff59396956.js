@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0bb29cc9cee61aed19a5",
+    "revision": "c3673f39ea55ffa4d898",
     "url": "/social-web/static/css/main.c85172af.chunk.css"
   },
   {
-    "revision": "0bb29cc9cee61aed19a5",
-    "url": "/social-web/static/js/main.0bb29cc9.chunk.js"
+    "revision": "c3673f39ea55ffa4d898",
+    "url": "/social-web/static/js/main.c3673f39.chunk.js"
   },
   {
     "revision": "1cf18b39fae268a53774",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/social-web/static/media/preloader.3f259006.gif"
   },
   {
-    "revision": "ad051c83cab4d344dbb9b22192cf05c8",
+    "revision": "5417c4c74a340741f23d9fee0ed9dbb8",
     "url": "/social-web/index.html"
   }
 ];
