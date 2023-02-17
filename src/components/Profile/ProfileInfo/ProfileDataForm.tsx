@@ -1,8 +1,8 @@
 import React from "react";
 import ProfileStatusWithHooks from "./ProfileStatus";
-import {createField, GetStringKeysType, Input, Textarea} from "../../common/FormsComtrol/FormsControl";
+import {createField, GetStringKeysType, Input, Textarea} from "../../common/FormsControl/FormsControl";
 
-import style from "../../common/FormsComtrol/FormsControl.module.css";
+import style from "../../common/FormsControl/FormsControl.module.css";
 import {InjectedFormProps, reduxForm} from "redux-form";
 import {ProfileType} from "../../../types/types";
 

@@ -1,5 +1,5 @@
 import { InjectedFormProps, reduxForm} from "redux-form";
-import {createField, GetStringKeysType,  Textarea} from "../../../common/FormsComtrol/FormsControl";
+import {createField, GetStringKeysType,  Textarea} from "../../../common/FormsControl/FormsControl";
 import React from "react";
 
 type PropsType = {

@@ -1,6 +1,6 @@
 import {required} from "../../../utils/validators/validators";
 import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Input} from "../../common/FormsComtrol/FormsControl";
+import {createField, Input} from "../../common/FormsControl/FormsControl";
 import React from "react";
 import { NewMessageFormValuesType} from "../Dialogs";
 import style from './AddMessageForm.module.css';
