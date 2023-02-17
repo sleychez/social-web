@@ -8,4 +8,16 @@
 
 .contact {
     padding-left: 10px;
+    margin-top: 5px;
+}
+
+.editButton {
+    margin: 10px 0 5px;
+}
+
+.inputPhoto{
+    margin: 10px;
+}
+.saveButton {
+    margin: 10px 0 5px;
 }

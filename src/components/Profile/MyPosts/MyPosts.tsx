@@ -25,6 +25,7 @@ const MyPosts:React.FC<StatePropsType &  DispatchPropsType> = props => {
 
     return (
         <div className={style.postsBlock}>
+            <h1 className={style.postsDev}>IN DEVELOPMENT STAGE</h1>
             <h3>My posts</h3>
             <AddNewPostForm onSubmit={onAddPost}/>
             <div className={style.posts}>

@@ -32,8 +32,8 @@ type PropsType = {
      return (
          <div>
              {!editMode &&
-                 <div>
-                     <span onDoubleClick={activateEditMode}>{props.status || '------'}</span>
+                 <div style={{marginTop: '5px'}}>
+                     <div style={{fontSize: '15px', fontWeight: '400'}} onDoubleClick={activateEditMode}>{props.status || '------'}</div>
                  </div>
              }
              {editMode &&

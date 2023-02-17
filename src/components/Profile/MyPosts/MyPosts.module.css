@@ -5,3 +5,8 @@ padding: 10px;
 .posts {
     margin-top: 10px;
 }
+
+.postsDev{
+    font-size: 54px;
+    text-align: center;
+}

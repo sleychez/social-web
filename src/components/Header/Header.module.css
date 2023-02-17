@@ -5,3 +5,11 @@
     padding-right: 20px !important;
     background-color: #755D9A !important;
 }
+
+.aurora {
+    display: flex;
+    margin-right: 660px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}

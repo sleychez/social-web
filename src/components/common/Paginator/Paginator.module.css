@@ -3,13 +3,23 @@
 }
 
 .pageNumber {
-    padding: 2px;
-    border: 1px solid grey
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 1px;
+    background-color: bisque;
+    color: black;
+    border-radius: 5px;
 }
-
 
 
 .pageNumber.selectedPage {
     font-weight: bold;
     border-color: black
+}
+
+.button {
+    background-color: white;
+    margin-left: 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
 }

@@ -44,7 +44,7 @@ const ProfileInfo:React.FC<PropsType> = ({profile, isOwner, savePhoto, status, u
         <div>
     <div className={style.descriptionBlock}>
         <img src={profile.photos.large || userPhoto} className={style.mainPhoto}/>
-        {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
+        {isOwner && <input className={style.inputPhoto} type={'file'} onChange={onMainPhotoSelected}/>}
 
         { editMode
             ? <ProfileDataForm  initialValues={profile} profile={profile} status={status}
@@ -68,22 +68,23 @@ type ProfileDataPropsType = {
 const ProfileData:React.FC<ProfileDataPropsType> = ({profile, status, updateStatus, isOwner, goToEditMode}) => {
     return  (
         <div>
-            {isOwner && <div> <button onClick={goToEditMode}>edit</button> </div>}
-        <div>
+            {isOwner && <div>
+                <button className={style.editButton} onClick={goToEditMode}>Edit profile info</button> </div>}
+        <div style={{fontSize: '20px'}}>
            {profile.fullName}
         </div>
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-        <div>
+        <div style={{marginTop: '5px'}}>
             <b>Looking for a job</b>: {profile.lookingForAJobDescription}
         </div>
-            <div>
-                <b>About me</b>: {profile.aboutMe}
+            <div style={{marginTop: '5px'}}>
+                <b >About me</b>: {profile.aboutMe}
             </div>
-        <div>
+        <div style={{marginTop: '5px'}}>
             <b>My links</b>: {Object
             .keys(profile.contacts)
             .map(key => {
-            return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key as keyof ContactsType]}/>
+            return <Contact  key={key} contactTitle={key} contactValue={profile.contacts[key as keyof ContactsType]}/>
         })}
         </div>
     </div>

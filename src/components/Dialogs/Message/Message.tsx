@@ -9,7 +9,7 @@ type PropsType = {
 
 const Message: React.FC<PropsType> = (props) => {
     return (
-    <div className={style.dialog}>{props.message}</div>
+    <div className={style.message}>{props.message}</div>
     )
 }
 

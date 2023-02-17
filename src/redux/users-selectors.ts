@@ -33,6 +33,13 @@ export const getUsersFilter = (state: AppStateType) => {
     return  state.usersPage.filter
 }
 
+export const getUsersSuperSelector = createSelector(
+    getUsersSelector,
+    (users) => {
+        return users.filter(unit => unit)
+    }
+)
+
 
 
 

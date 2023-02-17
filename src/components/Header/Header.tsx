@@ -7,34 +7,38 @@ import {selectCurrentLogin, selectIsAuth} from "../../redux/auth-selectors";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
 import {logout} from "../../redux/auth-reducer";
 import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
 
 export type StatePropsType = {}
 
 
-export const Header:React.FC<StatePropsType> = () => {
+export const Header: React.FC<StatePropsType> = () => {
 
-const isAuth = useAppSelector(selectIsAuth)
+    const isAuth = useAppSelector(selectIsAuth)
     const login = useAppSelector(selectCurrentLogin)
 
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
-    const logoutCallback = () => {
-    dispatch(logout())
+    const logoutCallback = async () => {
+        await dispatch(logout())
+        navigate('/login')
     }
 
     const {Header} = Layout;
 
     const {
-        token: { colorBgContainer },
+        token: {colorBgContainer},
     } = theme.useToken();
 
-    return  <Header className={style.header} style={{ padding: 0, background: colorBgContainer}}>
+    return <Header className={style.header} style={{padding: 0, background: colorBgContainer}}>
         {isAuth
             ? <>
-                <span style={{marginRight: '570px',fontWeight: 'bold', color: 'white', fontSize: '25px' }}>Aurora</span>
-                <Avatar alt={login || ''} style={{backgroundColor: '#423189', margin: '10px'}} shape="square" icon={<UserOutlined/>}/>
+                <span className={style.aurora}>Aurora</span>
+                <Avatar alt={login || ''} style={{backgroundColor: '#423189', margin: '10px'}} shape="square"
+                        icon={<UserOutlined/>}/>
                 <span style={{fontWeight: 'bold'}}>{login}</span>
-                <Button style={{marginLeft: '10px'}}onClick={logoutCallback}>Log out</Button>
+                <Button style={{marginLeft: '10px'}} onClick={logoutCallback}>Log out</Button>
             </>
             : <Button>
                 <Link to={'/login'}>Login</Link>

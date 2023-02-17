@@ -10,7 +10,7 @@ import {
     getPageSize,
     getTotalUsersCount,
     getUsers,
-    getUsersFilter
+    getUsersFilter, getUsersSuperSelector
 } from "../../redux/users-selectors";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
 import { useSearchParams } from "react-router-dom";
@@ -18,35 +18,67 @@ import { useSearchParams } from "react-router-dom";
 
 
 
-type PropsType = {}
+export const Users: React.FC = () => {
 
-export const Users: FC<PropsType> = () => {
-
+    const users = useSelector(getUsersSuperSelector)
     const totalUsersCount = useSelector(getTotalUsersCount)
     const currentPage = useSelector(getCurrentPage)
     const pageSize = useSelector(getPageSize)
-    const users = useSelector(getUsers)
     const filter = useSelector(getUsersFilter)
     const followingInProgress = useSelector(getFollowingInProgress)
 
     const dispatch = useAppDispatch()
 
-    let [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams()
 
-    const searchTerm = searchParams.get('term') || ''
-
-    const searchCurrentPage = +(searchParams.get('currentPage') || '1')
-
-    const searchFriend = searchParams.get('friend') === 'null' ? null : Boolean(searchParams.get('friend'))
 
     useEffect(() => {
-        dispatch(requestUsers(searchCurrentPage, pageSize, {term: searchTerm, friend: searchFriend} ))
+
+        const result: any = {}
+        // @ts-ignore
+        for (const [key, value] of searchParams.entries()) {
+            let value2: any = +value
+            if (isNaN(value2)) {
+                value2 = value
+            }
+            if (value === 'true') {
+                value2 = true
+            } else if (value === 'false') {
+                value2 = false
+            }
+            result[key] = value2
+        }
+
+        let actualPage = result.page || currentPage
+        let term = result.term || filter.term
+
+        let friend = result.friend || filter.friend
+        if (result.friend === false) {
+            friend = result.friend
+        }
+
+        const actualFilter = {friend, term}
+
+        dispatch(requestUsers(actualPage, pageSize, actualFilter))
+
+        // eslint-disable-next-line
     }, [])
 
-    useEffect(() => {
-        setSearchParams({term: filter.term, friend: String(filter.friend), currentPage: String(currentPage)})
-    }, [filter, currentPage])
 
+    useEffect(() => {
+
+        const term = filter.term
+        const friend = filter.friend
+
+        let urlQuery =
+            (term === '' ? '' : `&term=${term}`)
+            + (friend === null ? '' : `&friend=${friend}`)
+            + (currentPage === 1 ? '' : `&page=${currentPage}`)
+
+        setSearchParams(urlQuery)
+
+        // eslint-disable-next-line
+    }, [filter, currentPage])
 
 
     const onPageChanged = (pageNumber: number) => {
@@ -68,6 +100,7 @@ export const Users: FC<PropsType> = () => {
 
 
     return <div>
+        <h1 style={{fontSize: '25px'}}>Пользователи</h1>
 
         <UsersSearchForm onFilterChanged={onFilterChanged}/>
 

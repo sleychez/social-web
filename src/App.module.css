@@ -1,5 +1,30 @@
+.layoutOne {
+    height: 100%;
+    width: 100%;
+    display: flex
+}
+.img {
+    height: 45px;
+    margin: 16px
+}
 
+.footer {
+    text-align: center;
+    margin-top: auto;
+    background-color: #002140 !important;
+    color: white !important;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
 
-
-
-
+.content {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    min-height: calc(100% - 64px);
+    width: 100%;
+    overflow-y: auto
+}

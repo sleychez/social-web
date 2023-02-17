@@ -26,10 +26,10 @@ let initialState = {
         ] as Array<DialogsType>,
     messages: [
         {id: 1, message: 'Hi'},
-        {id: 2, message: 'How is your dog?'},
-        {id: 3, message: 'Yo'},
+        {id: 2, message: 'How are you?'},
+        {id: 3, message: 'How do you do?'},
         {id: 4, message: 'Yo'},
-        {id: 5, message: 'Yo'}
+        {id: 5, message: `let's go for a walk?`}
     ] as Array<MessagesType>
 };
 
@@ -50,7 +50,7 @@ const dialogsReducer = (state = initialState, action: ActionsType): InitialState
 }
 
 
-export const  actions= {
+export const actions ={
     sendMessage:(newMessageBody: string) => ({type: 'AN/DIALOGS/SEND-MESSAGE', newMessageBody} as const)
 }
 

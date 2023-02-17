@@ -1,5 +1,5 @@
 import React, {FC, lazy, useEffect, useState} from 'react';
-import './App.module.css';
+import style from './App.module.css';
 import {Link, Navigate, Route, Routes} from "react-router-dom";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
@@ -11,12 +11,13 @@ import {Login} from "./components/Login/Login";
 import 'antd/dist/reset.css'
 import type {MenuProps} from 'antd';
 import {Layout, Menu} from "antd";
-import {CommentOutlined, MessageOutlined, TeamOutlined, UserOutlined,} from '@ant-design/icons';
+import { MessageOutlined, TeamOutlined, UserOutlined,} from '@ant-design/icons';
 import {Header} from "./components/Header/Header";
+
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
-const GeneralChatPage = lazy(() => import('./pages/GeneralChat/GeneralChatPage'));
+
 
 const withRouter =<T,> (WrappedComponent: FC<T>) => (props: T) => {
     const params = useParams();
@@ -50,8 +51,8 @@ function getItem(
 const items: MenuItem[] = [
     getItem('My profile', '1', <Link to='/profile'><UserOutlined /></Link>),
     getItem('Dialogs', '2', <Link to='/dialogs'><MessageOutlined /></Link>),
-    getItem('Users', 'sub1', <Link to='/users'><TeamOutlined /></Link> ),
-    getItem('General chat', 'sub2', <Link to='/generalChat'><CommentOutlined /></Link> )]
+    getItem('Users', '3', <Link to='/users'><TeamOutlined /></Link> ),
+]
 
 
 
@@ -81,15 +82,14 @@ const App: React.FC = () => {
 
 
     return (
-        <Layout style={{ height: '100%', width: '100%', display:'flex'}}>
-
+        <Layout className={style.layoutOne}>
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-                <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)' }} />
-                <Menu theme="dark" mode="inline" items={items}/>
+                <img src='https://shapka-youtube.ru/wp-content/uploads/2020/07/letter-a.jpg' className={style.img}  />
+                    <Menu theme="dark" mode="inline" items={items}/>
             </Sider>
-            <Layout className="site-layout" style={{display: 'flex', flexDirection: 'column' } }>
+            <Layout className="site-layout" style={{display: 'flex', flexDirection: 'column', height: '100%', width:'100%' } }>
                 <Header/>
-                <Content style={{ margin: '0 16px' }}>
+                <Content className={style.content}>
                     <Routes>
                                         <Route path="/"
                                                element={<Navigate to={'/profile'}/>}/>
@@ -99,20 +99,16 @@ const App: React.FC = () => {
                                                element={<React.Suspense fallback={<Preloader/>}><ProfileContainer/></React.Suspense>}/>
                                         <Route path='/dialogs'
                                                element={<React.Suspense fallback={<Preloader/>}><DialogsContainer/></React.Suspense>}/>
-                                         <Route path='/generalChat'
-                                                element={<React.Suspense fallback={<Preloader/>}><GeneralChatPage/></React.Suspense>}/>
-
                                         <Route path='/users/*'
                                             //@ts-ignore
-                                               element={<UsersPage pageTitle={'Пользователи'}/>}/>
+                                               element={<UsersPage/>}/>
                                          <Route path='/login'
                                                 element={<Login/>}/>
                                         <Route path="*"
                                                element={<div>404 NOT FOUND</div>}/>
                                     </Routes>
+                    <Footer className={style.footer}>Aurora Social Network ©2022 Created by sleychez</Footer>
                 </Content>
-
-                <Footer style={{ textAlign: 'center', backgroundColor: '#003153', color: 'white' , height: '49px', display: 'flex',  alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>Aurora Social Network ©2022 Created by sleychez</Footer>
             </Layout>
 
         </Layout>

@@ -3,6 +3,7 @@ import {FilterType} from "../../redux/users-reducer";
 import React from "react";
 import {useSelector} from "react-redux";
 import {getUsersFilter} from "../../redux/users-selectors";
+import style from './UsersSearchForm.module.css'
 
 
 const usersSearchFormValidate = (values: any) => {
@@ -31,8 +32,6 @@ const filter = useSelector(getUsersFilter)
     term: values.term,
     friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false
 }
-
-
         props.onFilterChanged(filter)
         setSubmitting(false)
     }
@@ -45,15 +44,15 @@ return <div>
         onSubmit={submit}
         >
         {({ isSubmitting }) => (
-            <Form>
-                <Field type="text" name="term" />
+            <Form style={{margin: '15px'}}>
+                <Field style={{marginRight: '5px'}} type="text" name="term" />
 
                 <Field name="friend" as='select'>
                     <option value='null'>All</option>
                     <option value='true'>Only followed</option>
                     <option value='false'>Only unfollowed</option>
 </Field>
-                <button type ='submit' disabled={isSubmitting}>
+                <button className={style.button} type ='submit' disabled={isSubmitting}>
                     Find
                 </button>
             </Form>

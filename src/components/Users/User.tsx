@@ -3,6 +3,7 @@ import style from "./Users.module.css";
 import userPhoto from "../../assets/images/icon-256x256.png";
 import {NavLink} from "react-router-dom";
 import {UserType} from "../../types/types";
+import s from './User.module.css'
 
 
 type PropsType = {
@@ -24,13 +25,13 @@ const Users: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow
                     </div>
             <div>
                 {user.followed
-                    ? <button disabled={followingInProgress
+                    ? <button className={s.button} disabled={followingInProgress
                         .some(id => id === user.id)}
                               onClick={() => {
                                   unfollow(user.id)
                               }}>
                         Unfollow</button>
-                    : <button disabled={followingInProgress
+                    : <button className={s.button} disabled={followingInProgress
                         .some(id => id === user.id)}
                               onClick={() => {
                                   follow(user.id)

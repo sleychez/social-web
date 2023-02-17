@@ -29,15 +29,14 @@ const Dialogs: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <div  className={style.dialogs}>
+        <div className={style.dialogs}>
             <div className={style.dialogsItems}>
                 {dialogsElements}
             </div>
             <div className={style.messages}>
                 <div>{messagesElements}</div>
-
+                <AddMessageForm onSubmit={addNewMessage}/>
             </div>
-            <AddMessageForm onSubmit={addNewMessage}/>
         </div>
     )
 }

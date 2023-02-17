@@ -9,6 +9,7 @@ import style from './../common/FormsComtrol/FormsControl.module.css'
 import {AppStateType} from "../../redux/redux-store";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
 
+
 type LoginFormOwnPropsType = {
     captchaUrl: string | null
 }
@@ -17,8 +18,8 @@ type LoginFormOwnPropsType = {
 const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPropsType> & LoginFormOwnPropsType> = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField<LoginFormValuesTypeKeys>('Email', 'email', [required], Input)}
-            {createField<LoginFormValuesTypeKeys>('Password', 'password', [required], Input, {type: 'password'})}
+            {createField<LoginFormValuesTypeKeys>('Email', 'email', [required], Input, [], "Логин для тестового аккаунта: free@samuraijs.com")}
+            {createField<LoginFormValuesTypeKeys>('Password', 'password', [required], Input, {type: 'password'}, "Пароль для тестового аккаунта: free")}
             {createField<LoginFormValuesTypeKeys>(undefined, 'rememberMe', [], Input, {type: 'checkbox'}, 'remember me')}
 
             {captchaUrl && <img src={captchaUrl}/>}
@@ -29,7 +30,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
             </div>
             }
             <div>
-                <button>Login</button>
+                <button style={{fontWeight: 'bold'}}>Login</button>
             </div>
         </form>
     )
@@ -67,7 +68,7 @@ export const Login: React.FC = () => {
 
 
     return <div>
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>
 }
