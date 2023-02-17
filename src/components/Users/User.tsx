@@ -16,7 +16,7 @@ type PropsType = {
 
 const Users: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
-        <div>
+        <div style={{marginLeft: '10px', marginTop: '10px'}}>
             <span>
                 <div>
                     <NavLink to={'/profile/' + user.id}>

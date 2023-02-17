@@ -23,7 +23,6 @@ let initialState = {
 
 
 const authReducer = (state = initialState, action: ActionsType):InitialStateType => {
-    console.log(action)
     switch (action.type) {
         case 'AN/auth/SET_USER_DATA':
         case 'AN/auth/GET_CAPTCHA_URL_SUCCESS':

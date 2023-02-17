@@ -67,7 +67,7 @@ export const Login: React.FC = () => {
     }
 
 
-    return <div>
+    return <div style={{marginTop: '10px', marginLeft: '10px'}}>
         <h1>LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>

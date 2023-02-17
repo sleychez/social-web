@@ -100,13 +100,13 @@ export const Users: React.FC = () => {
 
 
     return <div>
-        <h1 style={{fontSize: '25px'}}>Пользователи</h1>
+        <h1 style={{fontSize: '25px', marginLeft: '10px'}}>Пользователи</h1>
 
         <UsersSearchForm onFilterChanged={onFilterChanged}/>
 
         <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
                    totalItemsCount={totalUsersCount} pageSize={pageSize}/>
-       <div>
+       <div style={{marginTop: '20px'}}>
         {
             users.map(user => <User user={user}
                                     followingInProgress={followingInProgress}
