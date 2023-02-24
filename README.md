@@ -1,1 +1,1 @@
-https://sleychez.github.io/login
+https://sleychez.github.io/social-web/
