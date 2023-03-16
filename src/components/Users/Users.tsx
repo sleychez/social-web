@@ -9,7 +9,6 @@ import {
     getFollowingInProgress,
     getPageSize,
     getTotalUsersCount,
-    getUsers,
     getUsersFilter, getUsersSuperSelector
 } from "../../redux/users-selectors";
 import {useAppDispatch} from "../../hooks/useAppDispatch";

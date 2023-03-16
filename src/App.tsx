@@ -104,6 +104,8 @@ const App: React.FC = () => {
                                                element={<UsersPage/>}/>
                                          <Route path='/login'
                                                 element={<Login/>}/>
+                                        <Route path='/social-web/'
+                                            element={<Navigate to={'/login'}/>}/>
                                         <Route path="*"
                                                element={<div>404 NOT FOUND</div>}/>
                                     </Routes>

@@ -27,11 +27,8 @@ export const Header: React.FC<StatePropsType> = () => {
 
     const {Header} = Layout;
 
-    const {
-        token: {colorBgContainer},
-    } = theme.useToken();
 
-    return <Header className={style.header} style={{padding: 0, background: colorBgContainer}}>
+    return <Header className={style.header}>
         {isAuth
             ? <>
                 <span className={style.aurora}>Aurora</span>
