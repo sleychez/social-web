@@ -19,7 +19,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & Prop
     return  (
         <form onSubmit={handleSubmit}>
             <div className={style.saveButton}>
-                <button style={{margin: '5px'}}>Save</button>
+                <button className={style.save}>Save</button>
             </div>
             {error && <div className={style.formSummaryError}>
                 {error}

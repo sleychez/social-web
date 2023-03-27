@@ -87,7 +87,7 @@ const App: React.FC = () => {
                 <img src='https://shapka-youtube.ru/wp-content/uploads/2020/07/letter-a.jpg' className={style.img}  />
                     <Menu theme="dark" mode="inline" items={items}/>
             </Sider>
-            <Layout className="site-layout">
+            <Layout className="site-layout" >
                 <Header/>
                 <Content className={style.content}>
                     <Routes>

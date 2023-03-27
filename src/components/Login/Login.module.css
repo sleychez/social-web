@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    height: 30px;
+    width: 70px;
+    margin: 7px 0 0 0;
+    background-color: rgba(217, 179, 239, 0.49);
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}

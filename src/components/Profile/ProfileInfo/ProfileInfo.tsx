@@ -41,7 +41,7 @@ const ProfileInfo:React.FC<PropsType> = ({profile, isOwner, savePhoto, status, u
     }
 
     return (
-        <div>
+        <div >
     <div className={style.descriptionBlock}>
         <img src={profile.photos.large || userPhoto} className={style.mainPhoto}/>
         {isOwner && <input className={style.inputPhoto} type={'file'} onChange={onMainPhotoSelected}/>}
@@ -70,7 +70,7 @@ const ProfileData:React.FC<ProfileDataPropsType> = ({profile, status, updateStat
         <div>
             {isOwner && <div>
                 <button className={style.editButton} onClick={goToEditMode}>Edit profile info</button> </div>}
-        <div style={{fontSize: '20px'}}>
+        <div className={style.fullName}>
            {profile.fullName}
         </div>
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>

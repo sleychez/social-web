@@ -8,7 +8,7 @@ import {Navigate} from "react-router";
 import style from '../common/FormsControl/FormsControl.module.css'
 import {AppStateType} from "../../redux/redux-store";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
-
+import s from './Login.module.css'
 
 type LoginFormOwnPropsType = {
     captchaUrl: string | null
@@ -30,7 +30,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
             </div>
             }
             <div>
-                <button style={{fontWeight: 'bold'}}>Login</button>
+                <button className={s.button}>Login</button>
             </div>
         </form>
     )
@@ -67,8 +67,8 @@ export const Login: React.FC = () => {
     }
 
 
-    return <div style={{marginTop: '10px', marginLeft: '10px'}}>
-        <h1>LOGIN</h1>
+    return <div style={{marginTop: '15px', marginLeft: '15px'}}>
+        <h1>AURORA SOCIAL NETWORK LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>
 }

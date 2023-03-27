@@ -1,7 +1,7 @@
 import { InjectedFormProps, reduxForm} from "redux-form";
 import {createField, GetStringKeysType,  Textarea} from "../../../common/FormsControl/FormsControl";
 import React from "react";
-
+import style from './AddNewPostForm.module.css'
 type PropsType = {
 
 }
@@ -19,7 +19,7 @@ const AddNewPostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsTyp
                 {createField<AddPostFormValuesKeysType>('Your post', 'newPostText', [],  Textarea)}
             </div>
             <div style={{marginTop: '5px'}}>
-                <button>Add post</button>
+                <button className={style.button}>Add post</button>
             </div>
         </form>
     )

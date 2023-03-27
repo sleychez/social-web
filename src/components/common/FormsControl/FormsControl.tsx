@@ -33,7 +33,7 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
 
 export const Input: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props
-    return <FormsControl {...props}><input {...input} {...restProps} /></FormsControl>
+    return <FormsControl {...props}><input className={style.input} {...input} {...restProps} /></FormsControl>
 }
 
 export function createField<FormKeysType extends string>(placeholder: string | undefined,

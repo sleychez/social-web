@@ -33,7 +33,7 @@ type PropsType = {
          <div>
              {!editMode &&
                  <div style={{marginTop: '5px'}}>
-                     <div style={{fontSize: '15px', fontWeight: '400'}} onDoubleClick={activateEditMode}>{props.status || '------'}</div>
+                     <div style={{fontSize: '15px', fontWeight: '450'}} onDoubleClick={activateEditMode}>{props.status || '------'}</div>
                  </div>
              }
              {editMode &&
