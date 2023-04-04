@@ -37,7 +37,8 @@ export const Header: React.FC<StatePropsType> = () => {
                 <span style={{fontWeight: 'bold'}}>{login}</span>
                 <Button style={{marginLeft: '10px'}} onClick={logoutCallback}>Log out</Button>
             </>
-            : <Button>
+            :
+            <Button>
                 <Link to={'/login'}>Login</Link>
             </Button>
         }

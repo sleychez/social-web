@@ -7,10 +7,8 @@
 }
 
 .aurora {
-    display: flex;
-    margin-right: 660px;
+    margin: 0 auto;
     font-weight: bold;
     color: white;
     font-size: 25px;
-
 }
